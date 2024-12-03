@@ -45,11 +45,9 @@ fn part2(input: &str) -> usize {
 }
 
 fn main() {
-    let input_part1 = read_file("files/day02/input");
-    println!("Part 1: {}", part1(&input_part1));
-
-    let input_part2 = read_file("files/day02/input");
-    println!("Part 2: {}", part2(&input_part2));
+    let input = read_file("files/day02/input");
+    println!("Part 1: {}", part1(&input));
+    println!("Part 2: {}", part2(&input));
 }
 
 #[cfg(test)]

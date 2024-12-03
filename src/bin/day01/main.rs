@@ -43,11 +43,9 @@ fn part2(input: &str) -> i32 {
 }
 
 fn main() {
-    let part1_input = read_file("files/day01/input");
-    println!("Part 1: {}", part1(&part1_input));
-
-    let part2_input = read_file("files/day01/input");
-    println!("Part 2: {}", part2(&part2_input));
+    let input = read_file("files/day01/input");
+    println!("Part 1: {}", part1(&input));
+    println!("Part 2: {}", part2(&input));
 }
 
 #[cfg(test)]
