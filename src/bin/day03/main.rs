@@ -4,7 +4,7 @@ use regex::Regex;
 const MUL_REGEX: &str = r"mul\((\d{1,3}),(\d{1,3})\)";
 const DO_DONT_REGEX: &str = r"do\(\)|don't\(\)";
 
-fn parse_mut(cap: &regex::Captures) -> usize {
+fn parse_mul(cap: &regex::Captures) -> usize {
     let x = &cap[1].parse::<usize>().unwrap();
     let y = &cap[2].parse::<usize>().unwrap();
     x * y
@@ -12,7 +12,7 @@ fn parse_mut(cap: &regex::Captures) -> usize {
 
 fn part1(input: &str) -> usize {
     let regex = Regex::new(MUL_REGEX).unwrap();
-    regex.captures_iter(input).map(|cap| parse_mut(&cap)).sum()
+    regex.captures_iter(input).map(|cap| parse_mul(&cap)).sum()
 }
 
 fn part2(input: &str) -> usize {
@@ -26,7 +26,7 @@ fn part2(input: &str) -> usize {
             "don't()" => do_ = false,
             _ => {
                 if do_ {
-                    result += parse_mut(&cap);
+                    result += parse_mul(&cap);
                 }
             }
         }
